@@ -33,6 +33,7 @@ Route::get('/profil/{nama?}/{pekerjaan?}', function ($nama = "Richie", $pekerjaa
     echo "<h2>Halo Nama Saya $nama. Saya adalah $pekerjaan</h2>";
 });
 
+
 Route::get('/hubungi', function () {
     echo "<h1>Hubungi Kami</h1>";
 })->name("call");
@@ -50,4 +51,25 @@ route::prefix('/dosen')->group(function () {
     route::get('/materi', function () {
         echo "<h1>materi Dosen</h1>";
     });
+});
+
+Route::get('/dosen', function () {
+    return view('dosen');
+});
+
+Route::get('/dosen/index', function () {
+    return view('dosen.index');
+});
+
+Route::get('/fakultas', function () {
+    // return view('fakultas.index', ["ilkom" => "Fakultas Ilmu Komputer dan Rekayasa"]);
+    // return view('fakultas.index', ["fakultas" => ["Fakultas Ilmu Komputer dan Rekayasa", "Fakultas Ilmu Ekonomi"]]);
+    // return view('fakultas.index')->with("fakultas", ["Fakultas Ilmu Komputer dan Rekayasa", "Fakultas Ilmu Ekonomi"]);
+
+    $kampus = "Universitas Multi Data Palembang";
+    // $fakultas = [];
+    $fakultas = ["Fakultas Ilmu Komputer dan Rekayasa", "Fakultas Ilmu Ekonomi"];
+    return view('fakultas.index', compact('fakultas', 'kampus'));
+
+
 });
