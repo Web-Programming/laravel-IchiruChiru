@@ -30,26 +30,26 @@ class MahasiswaController extends Controller
     // }
     public function insertElq()
     {
-        // $mhs = new Mahasiswa();
-        // $mhs->nama = "Richie Jonathan Chaniago";
-        // $mhs->npm = "2226250017";
-        // $mhs->tempat_lahir = "Palembang";
-        // $mhs->tanggal_lahir = date("Y-m-d");
-        // $mhs->save();
-        // dump($mhs);
+        $mhs = new Mahasiswa();
+        $mhs->nama = "Richie Jonathan Chaniago";
+        $mhs->npm = "2226250017";
+        $mhs->tempat_lahir = "Palembang";
+        $mhs->tanggal_lahir = date("Y-m-d");
+        $mhs->save();
+        dump($mhs);
         $mhs = Mahasiswa::insert(
-            // [
-            //     'nama' => 'Jonathan R',
-            //     'npm' => '2226250047',
-            //     'tempat_lahir' => 'Jakarta',
-            //     'tanggal_lahir' => date("Y-m-d")
-            // ],
-            // [
-            //     'nama' => 'Richie',
-            //     'npm' => '2226250027',
-            //     'tempat_lahir' => 'Bandung',
-            //     'tanggal_lahir' => date("Y-m-d")
-            // ]
+            [
+                'nama' => 'Jonathan R',
+                'npm' => '2226250047',
+                'tempat_lahir' => 'Jakarta',
+                'tanggal_lahir' => date("Y-m-d")
+            ],
+            [
+                'nama' => 'Richie',
+                'npm' => '2226250027',
+                'tempat_lahir' => 'Bandung',
+                'tanggal_lahir' => date("Y-m-d")
+            ]
         );
         dump($mhs);
 
@@ -78,5 +78,12 @@ class MahasiswaController extends Controller
         $mahasiswa->delete();
         dump($mahasiswa);
 
+    }
+
+    public function allJoinElq()
+    {
+        $kampus = 'Universitas Multi data Palembang';
+        $mahasiswa = Mahasiswa::has('prodi')->get();
+        return view('mahasiswa.index', ['allmahasiswa' => $mahasiswa, 'kampus' => $kampus]);
     }
 }
