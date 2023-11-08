@@ -79,6 +79,7 @@ Route::get('/fakultas', function () {
 });
 
 Route::get('/prodi', [ProdiController::class, 'index']);
+Route::get('/prodi', [ProdiController::class, 'create']);
 
 Route::resource("/kurikulum", KurikulumController::class);
 
@@ -92,3 +93,4 @@ route::get('/mahasiswa/select-elq', [MahasiswaController::class, 'selectElq']);
 Route::get('/prodi/all-join-facade', [ProdiController::class, 'allJoinFacade']);
 Route::get('/prodi/all-join-elq', [ProdiController::class, 'allJoinElq']);
 Route::get('/mahasiswa/all-join-elq', [MahasiswaController::class, 'allJoinElq']);
+

@@ -33,4 +33,8 @@ class ProdiController extends Controller
         }
 
     }
+    public function create()
+    {
+        return view("prodi.create");
+    }
 }
