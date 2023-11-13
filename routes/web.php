@@ -97,3 +97,5 @@ Route::get('/mahasiswa/all-join-elq', [MahasiswaController::class, 'allJoinElq']
 
 Route::get('/prodi', [ProdiController::class, 'index'])->name('prodi.index');
 Route::get('/prodi/{prodi}', [ProdiController::class, 'show'])->name('prodi.show');
+
+Route::get('/prodi/{prodi}/edit', [ProdiController::class, 'edit'])->name('prodi.edit');

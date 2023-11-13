@@ -62,4 +62,9 @@ class ProdiController extends Controller
     {
         return view('prodi.show', ['prodi' => $prodi]);
     }
+
+    public function edit(Prodi $prodi)
+    {
+        return view('prodi.edit', ['prodi' => $prodi]);
+    }
 }
